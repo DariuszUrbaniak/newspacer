@@ -10,10 +10,10 @@
       ]
     },
     "lib": [
-      "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
+      "scripthost",
+      "es2015"  // lub inna wersja zamiast "esnext"
     ]
   }
 }
