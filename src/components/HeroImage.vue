@@ -7,7 +7,7 @@ export default {
 };
 </script>
 
-<style lang="SCSS" scoped>
+<style lang="scss" scoped>
 .heroImage {
   position: fixed;
   top: 0;
