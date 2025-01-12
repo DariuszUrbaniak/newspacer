@@ -2,7 +2,7 @@
   <div class="wrapper">
     <HeroImage />
     <ClaimComponent />
-    <SearchInput />
+    <SearchInput v-model="searchValue" @input="handleInput" />
   </div>
 </template>
 <script>
