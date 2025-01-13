@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <HeroImage />
     <ClaimComponent />
     <SearchInput v-model="searchValue" @input="handleInput" />
   </div>
@@ -10,7 +9,6 @@ import axios from 'axios';
 import debounce from 'lodash.debounce';
 import ClaimComponent from './components/Claim.vue';
 import SearchInput from './components/Searchinput.vue';
-import HeroImage from './components/HeroImage.vue';
 
 const API = 'https://images-api.nasa.gov/search';
 
@@ -19,7 +17,6 @@ export default {
   components: {
     ClaimComponent,
     SearchInput,
-    HeroImage,
   },
   data() {
     return {
@@ -40,23 +37,22 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import url('https://fonts.googleapis,com/css?family=Montserrat:300,400,600,800');
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,800');
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 600;
 $font-weight-black: 800;
 
-  * {
+* {
     box-sizing: border-box;
   }
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
   }
 
   .wrapper {
@@ -68,5 +64,9 @@ $font-weight-black: 800;
     padding: 30px;
     width: 100%;
     height: 100vh;
-  }
+    background-image: url('./assets/heroimage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 80% 0;
+}
 </style>

@@ -1,10 +1,7 @@
 <template>
-  <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
   <input id="search" name="search" :value="value" @input="handleChange" />
 </template>
 <script>
-import { Value } from 'sass';
-
 export default {
   name: 'SearchInput',
   props: {
