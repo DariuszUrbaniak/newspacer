@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <ClaimComponent />
-    <SearchInput />
+    <SearchInput v-model="searchValue" @input="handleInput" />
   </div>
 </template>
 <script>
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis,com/css?family=Montserrat:300,400,600,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,800');
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
