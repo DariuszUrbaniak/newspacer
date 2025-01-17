@@ -1,12 +1,11 @@
 <template>
   <div class="claimWrapper">
-    <h1 class="claim">SPACER</h1>
+    <h1 class="claim">OUTER SPACE</h1>
     <p class="subclaim">
-      Begin your journey through our amazing galaxy,
-      and discover places you never even heard of.
+      Rozpocznij swoją podróż przez galaktykę, odkryj nowe miejsca.
     </p>
     <p>
-      Type anything space-related to start.
+      Wpisz nazwę planety.
     </p>
   </div>
 </template>

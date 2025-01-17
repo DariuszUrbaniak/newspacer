@@ -8,6 +8,9 @@
     </transition>
     <ClaimComponent v-if="step === 0" />
     <SearchInput v-model="searchValue" @input="handleInput" :dark="step === 1" />
+    <div class="results" v-if="results && !loading && step === 1">
+      <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" />
+    </div>
   </div>
 </template>
 <script>
@@ -16,6 +19,7 @@ import debounce from 'lodash.debounce';
 import ClaimComponent from './components/Claim.vue';
 import SearchInput from './components/Searchinput.vue';
 import HeroImage from './components/HeroImage.vue';
+import Item from './components/Item.vue';
 
 const API = 'https://images-api.nasa.gov/search';
 
@@ -23,6 +27,7 @@ export default {
   name: 'App',
   components: {
     HeroImage,
+    Item,
     ClaimComponent,
     SearchInput,
   },
@@ -104,5 +109,16 @@ body {
 .logo {
   position: absolute;
   top: 30px;
+}
+
+.results {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>
