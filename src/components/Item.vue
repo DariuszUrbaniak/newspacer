@@ -1,5 +1,5 @@
 <template>
-  <div :style="style" class="item" />
+  <div :style="style" class="item" @click="handleClic" @keydown.enter="handleClic" @keydown.space="handleClic" tabindex="0" />
 </template>
 <script>
 export default {
@@ -22,6 +22,12 @@ export default {
       return `background-image: url("${this.photo}")`;
     },
   },
+  methods: {
+    handleClic() {
+      console.log('Kliknięto element:', this.item);
+      this.$emit('click', this.item);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -31,6 +37,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
+    cursor: pointer;
 
     @media (min-width: 768px) {
       width: 25vw;

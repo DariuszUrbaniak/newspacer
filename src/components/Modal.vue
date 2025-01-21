@@ -2,7 +2,7 @@
   <div class="outerWrapper">
     <div class="innerWrapper">
       <div class="photo">
-        <img src="photo" alt="">
+        <img :src="photo" alt="">
       </div>
       <div class="description">
         <h2 class="title">{{ title }}</h2>
@@ -11,10 +11,7 @@
         </p>
       </div>
     </div>
-    <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
-    <div class="close" @click="$emit('closeModal')" />
-    <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
-    <div class="close" @click="$emit('closeModal')" />
+    <div class="close" @click="$emit('closeModal')" @keydown.enter="$emit('closeModal')" tabindex="0" />
   </div>
 </template>
 <script>
@@ -34,24 +31,29 @@ export default {
     };
   },
   mounted() {
-    this.photo = this.item.links[0].href;
+    console.log('Modal został zamontowany, item:', this.item);
+    this.photo = this.item?.links?.[0].href;
     this.title = this.item.data[0].title;
-    this.title = this.item.data[0].description.substring(0, 200);
+    this.description = this.item.data[0].description ? this.item.data[0].description.substring(0, 200) : 'No description';
   },
 };
 </script>
 <style lang="scss" scoped>
-  .outerWraper {
+  .outerWrapper {
     background: #f6f6f6;
     max-width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (min-width: 1024px) {
         max-width: 70%;
-        height: 60%;
+        max-height: 80%;
+        height: auto;
         left: 0;
         right: 0;
         top: 0;
@@ -91,12 +93,13 @@ export default {
     }
   }
 
-  .innerWraper {
+  .innerWrapper {
     display: flex;
+    width: 90%;
     height: 100%;
     padding: 50px;
     justify-content: center;
-    align-items: center;
+    overflow: auto;
     flex-direction: column;
 
     @media (min-width: 1024px) {
@@ -115,6 +118,9 @@ export default {
 
         img{
           width: 100%;
+          height: auto;
+          max-height: 70vh;
+          object-fit: contain;
         }
     }
 
