@@ -28,12 +28,12 @@ export default {
     width: 250px;
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 35px;
     font-weight: 400;
     height: 30px;
     border: 0;
     background: none;
-    border-bottom: 1px solid white;
+    border-bottom: 5px solid white;
     transition: box-shadow .3s ease-out;
 
     @media (min-width: 1024px) {

@@ -4,8 +4,8 @@
     <p class="subclaim">
       Rozpocznij swoją podróż przez galaktykę, odkryj nowe miejsca.
     </p>
-    <p>
-      Wpisz nazwę planety.
+    <p class="subclaim">
+      Wpisz poniżej nazwę planety.
     </p>
   </div>
 </template>
@@ -64,5 +64,9 @@ export default {
       line-height: 1;
       letter-spacing: 1px;
     }
+
+    @media (min-width: 1024px) {
+    font-size: 26px; /* dla desktopów */
+  }
   }
 </style>
